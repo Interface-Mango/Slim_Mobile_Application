@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="horizontal"
+    android:gravity="center"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/login"
+    tools:context="com.example.hyejin.slimtest.Main">
+
+
+    <ImageView
+        android:layout_marginTop="50sp"
+        android:id="@+id/hwcheck"
+        android:layout_width="150sp"
+        android:layout_height="150sp"
+        android:src="@drawable/hwcheck1"
+      />
+
+    <ImageView
+        android:layout_marginTop="50sp"
+        android:id="@+id/classlist"
+        android:layout_width="150sp"
+        android:layout_height="150sp"
+        android:src="@drawable/classlist" />
+
+
+</LinearLayout>
