@@ -15,8 +15,10 @@
         android:layout_height="50dp"
         android:id="@+id/emailInput"
         android:hint="ID"
-        android:layout_above="@+id/passwordInput"
-        android:layout_centerHorizontal="true" />
+        android:layout_gravity="center_vertical"
+        android:layout_above="@+id/loginButton"
+        android:layout_alignLeft="@+id/passwordInput"
+        android:layout_alignStart="@+id/passwordInput" />
 
     <EditText
         android:layout_width="300dp"
@@ -26,6 +28,7 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="143dp" />
+
     <Button
         android:layout_width="150dp"
         android:layout_height="55dp"

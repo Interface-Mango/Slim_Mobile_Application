@@ -20,17 +20,18 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".Main"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
             android:name=".classActivity"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/AppTheme" />
         <activity
             android:name=".hwActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".classMain"
             android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".noticeActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+
 
     </application>
 
