@@ -10,11 +10,14 @@ public class list_item {
     private String title;
     private Date date;
 
+
+
     public list_item(String num, String title, Date date) {
         this.num = num;
         this.title = title;
         this.date = date;
     }
+
 
     public String getNum() {
         return num;

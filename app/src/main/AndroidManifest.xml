@@ -30,7 +30,25 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".noticeActivity"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".noticeActivity_detail"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".myQuestionActivity"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".myQuestionActivity_detail"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".attendActivity"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".qnaActivity"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".adviceNoteActivity"
+            android:theme="@style/AppTheme" />
 
 
     </application>
