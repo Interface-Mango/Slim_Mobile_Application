@@ -18,7 +18,8 @@
         android:layout_gravity="center_vertical"
         android:layout_above="@+id/passwordInput"
         android:layout_alignLeft="@+id/passwordInput"
-        android:layout_alignStart="@+id/passwordInput" />
+        android:layout_alignStart="@+id/passwordInput"
+        android:singleLine="true"/>
 
     <EditText
         android:layout_width="300dp"
@@ -27,7 +28,8 @@
         android:hint="Password"
         android:layout_above="@+id/loginButton"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="43dp" />
+        android:layout_marginBottom="43dp"
+        android:singleLine="true" />
 
     <Button
         android:layout_width="150dp"
@@ -36,10 +38,6 @@
         android:id="@+id/loginButton"
         android:textAllCaps="false"
         android:layout_alignParentBottom="true"
-        android:layout_marginBottom="30dp"
-        android:layout_alignLeft="@+id/emailInput"
-        android:layout_alignStart="@+id/emailInput"
-        android:layout_alignRight="@+id/emailInput"
-        android:layout_alignEnd="@+id/emailInput" />
+        android:layout_marginBottom="30dp"/>
 
 </RelativeLayout>
