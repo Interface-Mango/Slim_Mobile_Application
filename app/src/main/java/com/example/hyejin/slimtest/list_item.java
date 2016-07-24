@@ -1,21 +1,22 @@
 package com.example.hyejin.slimtest;
 
-import java.util.Date;
-
 /**
  * Created by hyejin on 2016-07-07.
  */
 public class list_item {
     private String num;
     private String title;
-    private Date date;
+    private String date;
+    private String location;
+    private String lecturer_name;
 
 
-
-    public list_item(String num, String title, Date date) {
+    public list_item(String num, String title, String date, String location, String lecturer_name) {
         this.num = num;
         this.title = title;
         this.date = date;
+        this.location = location;
+        this.lecturer_name = lecturer_name;
     }
 
 
@@ -35,11 +36,27 @@ public class list_item {
         this.title = title;
     }
 
-    public Date getDate() {
+    public String getDate() {
         return date;
     }
 
-    public void setDate(Date date) {
+    public void setDate(String date) {
         this.date = date;
+    }
+
+    public String getLecturer_name() {
+        return lecturer_name;
+    }
+
+    public void setLecturer_name(String lecturer_name) {
+        this.lecturer_name = lecturer_name;
+    }
+
+    public String getLocation() {
+        return location;
+    }
+
+    public void setLocation(String location) {
+        this.location = location;
     }
 }

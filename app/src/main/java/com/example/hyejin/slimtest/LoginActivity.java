@@ -240,7 +240,8 @@ public class LoginActivity extends AppCompatActivity {
             String user_name="";
             String user_group="";
             int user_auth = -1;
-            ArrayList<Integer> subjectIdList = new ArrayList<Integer>();
+//            ArrayList<Integer> subjectIdList = new ArrayList<Integer>();
+            String user_sub_ids = "";
 
             try {
                 Log.d("str", str);
@@ -254,22 +255,24 @@ public class LoginActivity extends AppCompatActivity {
                     return;
                 }
                 JSONArray ja = root.getJSONArray("result");//[{}]
-                String[] tempList = null;
+//                String[] tempList = null;
                 for(int i=0;i<ja.length();i++) {
                     JSONObject jo = ja.getJSONObject(i);//{}
                     user_id = jo.getString("user_id");
                     user_name = jo.getString("user_name");
                     user_group = jo.getString("group");
                     user_auth = jo.getInt("auth");
-                    tempList = jo.getString("sub_ids").split("_");
-                    for(int k=0;k<tempList.length;k++) {    // 과목 ID 넣기
-                        subjectIdList.add(Integer.parseInt(tempList[k]));
-                    }
+                    user_sub_ids = jo.getString("sub_ids");
+//                    tempList = jo.getString("sub_ids").split("_");
+//                    for(int k=0;k<tempList.length;k++) {    // 과목 ID 넣기
+//                        subjectIdList.add(Integer.parseInt(tempList[k]));
+//                    }
                     dataList.add(user_id);
                     dataList.add(user_name);
                     dataList.add(user_group);
                     dataList.add(user_auth);
-                    dataList.add(subjectIdList);
+                    dataList.add(user_sub_ids);
+//                    dataList.add(subjectIdList);
                 }
 
                 // SharedPreference 저장
@@ -277,8 +280,9 @@ public class LoginActivity extends AppCompatActivity {
                 editor.putString("user_name", user_name);
                 editor.putString("user_group", user_group);
                 editor.putInt("user_auth", user_auth);
-                for(int i=0;i< tempList.length;i++)
-                    editor.putInt("user_sub_id"+i, subjectIdList.get(i));
+                editor.putString("user_sub_ids", user_sub_ids);
+//                for(int i=0;i< tempList.length;i++)
+//                    editor.putInt("user_sub_id"+i, subjectIdList.get(i));
                 editor.commit();
 
                 Toast.makeText(getApplicationContext(), dataList.get(1)+"님 환영합니다!", Toast.LENGTH_LONG).show();

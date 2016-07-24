@@ -8,7 +8,6 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 
 import java.util.ArrayList;
-import java.util.Date;
 
 /**
  * Created by hyejin on 2016-07-18.
@@ -27,9 +26,9 @@ public class adviceNoteActivity extends AppCompatActivity {
         m_List = new ArrayList<list_item>();
 
 
-        m_List.add(new list_item("1","안녕",new Date(System.currentTimeMillis())));
-        m_List.add(new list_item("2","안녕1",new Date(System.currentTimeMillis())));
-        m_List.add(new list_item("3","안녕2",new Date(System.currentTimeMillis())));
+//        m_List.add(new list_item("1","안녕",new Date(System.currentTimeMillis())));
+//        m_List.add(new list_item("2","안녕1",new Date(System.currentTimeMillis())));
+//        m_List.add(new list_item("3","안녕2",new Date(System.currentTimeMillis())));
 
 
         m_Adapter = new CustomAdapter_advicenote(adviceNoteActivity.this,m_List);
