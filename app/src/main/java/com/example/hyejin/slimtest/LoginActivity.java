@@ -54,7 +54,7 @@ public class LoginActivity extends AppCompatActivity {
     private Button mSignInButton;
 
     // 로그인 정보 저장장
-   private SharedPreferences pref;
+    private SharedPreferences pref;
     private SharedPreferences.Editor editor;
 
     @Override
@@ -248,7 +248,7 @@ public class LoginActivity extends AppCompatActivity {
 
                 Log.d("rownum", root.getInt("rownum") + "");
 
-                if(root.getInt("rownum") == 0 || root.getInt("rownum") == -1) {
+                if(root.getInt("rownum") == 0) {
                     Toast.makeText(getApplicationContext(), "로그인 실패!", Toast.LENGTH_LONG).show();
                     showProgress(false);
                     return;
@@ -288,6 +288,8 @@ public class LoginActivity extends AppCompatActivity {
                 startActivity(intent);
                 finish();
             } catch(JSONException ex) {
+                Toast.makeText(getApplicationContext(), "로그인 실패!", Toast.LENGTH_LONG).show();
+                showProgress(false);
                 ex.printStackTrace();
             }
         }
