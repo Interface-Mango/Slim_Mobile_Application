@@ -23,12 +23,10 @@ import java.net.URL;
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
-    EditText editid;
-    EditText editpw;
-    Button loginButton;
+    EditText mEditId;
+    EditText mEditPw;
 
     ArrayList<GetDataList> dataList = new ArrayList<GetDataList>();
-    SendPost sendPost;
 
     String strId;
     String strPw;
@@ -42,40 +40,26 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        sendPost = new SendPost();
-        editid = (EditText)findViewById(R.id.idInput);
-        editpw = (EditText)findViewById(R.id.passwordInput);
-        loginButton = (Button) findViewById(R.id.loginButton);
 
-        loginButton.setOnClickListener(new View.OnClickListener() {
+        mEditId = (EditText)findViewById(R.id.idInput);
+        mEditPw = (EditText)findViewById(R.id.passwordInput);
+        Button mLoginButton = (Button) findViewById(R.id.loginButton);
+
+        mLoginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(editid.getText().toString().equals("")){
+                if (mEditId.getText().toString().equals("")) {
                     Toast.makeText(getApplicationContext(), "아이디를 입력하세요.", Toast.LENGTH_SHORT).show();
                     return;
-                } else if(editpw.getText().toString().equals("")){
+                } else if (mEditPw.getText().toString().equals("")) {
                     Toast.makeText(getApplicationContext(), "비밀번호를 입력하세요.", Toast.LENGTH_SHORT).show();
                     return;
                 }
 
-                strId = editid.getText().toString();
-                strPw = editpw.getText().toString();
+                strId = mEditId.getText().toString();
+                strPw = mEditPw.getText().toString();
+                SendPost sendPost = new SendPost();
                 sendPost.execute("http://14.63.196.146/user.php", strId, strPw);
-//                runOnUiThread((new Runnable() {
-//                    @Override
-//                    public void run() {
-//                        String id = editid.getText().toString();
-//                        String password = editpw.getText().toString();
-//
-//                        try {
-//                            URL url = new URL(SERVER_ADDRESS + "/sos.php?"
-//                                    + "id=" + URLEncoder.encode(id,"UTF-8")
-//                                    + "&password=" + URLEncoder.encode(password, "UTF-8"));
-//                            url.openStream();
-//
-//                        }
-//                    }
-//                }));
             }
         });
     }
@@ -152,8 +136,8 @@ public class MainActivity extends AppCompatActivity {
 
                 if(root.getInt("rownum") == 0) {
                     Toast.makeText(getApplicationContext(), "로그인 실패!", Toast.LENGTH_LONG).show();
-                    strId = "";
-                    strPw = "";
+//                    strId = "";
+//                    strPw = "";
                     return;
                 }
                 JSONArray ja = root.getJSONArray("result");//[{}]

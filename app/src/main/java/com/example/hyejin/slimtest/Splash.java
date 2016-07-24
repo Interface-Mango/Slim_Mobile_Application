@@ -18,7 +18,7 @@ public class Splash extends AppCompatActivity {
 
         Handler handler = new Handler(){
             public void handleMessage(Message msg){
-                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
                 startActivity(intent);
                 finish();
             }
