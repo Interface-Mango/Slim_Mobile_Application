@@ -1,6 +1,8 @@
 package com.example.hyejin.slimtest;
 
+import android.annotation.TargetApi;
 import android.content.Context;
+import android.os.Build;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,14 +17,14 @@ import java.util.ArrayList;
 public class CustomAdapter_notice  extends BaseAdapter {
     // 문자열을 보관 할 ArrayList
     Context context;
-    ArrayList<list_item> m_List;
+    ArrayList<list_item_notice> m_List;
 
     //생성자
-    public CustomAdapter_notice(Context context, ArrayList<list_item> m_List) {
+    public CustomAdapter_notice(Context context, ArrayList<list_item_notice> m_List) {
         this.context = context;
         this.m_List = m_List;
     }
-
+    @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
     // 현재 아이템의 수를 리턴
     @Override
     public int getCount() {
@@ -51,17 +53,16 @@ public class CustomAdapter_notice  extends BaseAdapter {
         if ( convertView == null ) {
             // view가 null일 경우 커스텀 레이아웃을 얻어 옴
             LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            convertView = inflater.inflate(R.layout.activity_custom_list_notice, parent, false);
+            convertView = inflater.inflate(R.layout.activity_custiom_list_notice, parent, false);
 
             // TextView에 현재 position의 문자열 추가
-            TextView num = (TextView) convertView.findViewById(R.id.num_notice);
-            num.setText(m_List.get(position).getNum());
+
 
             TextView title = (TextView) convertView.findViewById(R.id.title_notice);
             title.setText(m_List.get(position).getTitle());
 
             TextView date = (TextView) convertView.findViewById(R.id.date_notice);
-            date.setText(m_List.get(position).getDate().toString());
+            date.setText(m_List.get(position).getDate());
 
             // 버튼을 터치 했을 때 이벤트 발생
 //            TextView num_btn = (TextView) convertView.findViewById(R.id.title);

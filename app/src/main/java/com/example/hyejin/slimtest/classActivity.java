@@ -3,6 +3,7 @@ package com.example.hyejin.slimtest;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
@@ -34,6 +35,8 @@ public class classActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_class);
+        setTitle("수업 목록");
+
         // Xml에서 추가한 ListView 연결
         m_ListView = (ListView) findViewById(R.id.listview);
         m_List = new ArrayList<list_item>();
@@ -110,9 +113,10 @@ public class classActivity extends AppCompatActivity {
             String location = "";
             String lecturer_name = "";
 
+
             try {
                 Log.d("str", str);
-                JSONObject root = new JSONObject(str);
+                JSONObject root = new JSONObject(str); //str 전체 긁어온 값
 
                 Log.d("rownum", root.getInt("rownum") + "");
 
@@ -141,8 +145,11 @@ public class classActivity extends AppCompatActivity {
                 // ListView에 어댑터 연결
                 m_ListView.setAdapter(m_Adapter);
                 m_ListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
                     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                         Intent intent = new Intent(getApplicationContext(), classMain.class);
+                        intent.putExtra("user",m_List.get(position));
+//                        intent.putExtra("NAME",m_List.get(position).title);
                         startActivity(intent);
                     }
                 });

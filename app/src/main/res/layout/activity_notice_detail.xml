@@ -1,9 +1,61 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
-<Button
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    android:text="dd"/>
+    android:layout_height="match_parent"
+    android:weightSum="1"
+    android:background="@color/white">
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="68dp"
+        android:padding="16dp"
+        android:text="과제 제출 기한"
+        android:textAlignment="center"
+        android:textStyle="bold"
+        android:textSize="30sp"
+        android:id="@+id/textView_notice_title" />
+
+    <TextView
+        android:layout_width="171dp"
+        android:layout_height="wrap_content"
+        android:text="2016-08-01 9:00 AM"
+        android:textSize="15sp"
+        android:textAlignment="center"
+
+        android:id="@+id/textView_notice_time"
+        android:layout_gravity="right" />
+    <View
+        android:layout_width="wrap_content"
+        android:layout_height="0.3dp"
+        android:background="#000000" />
+
+
+    <TextView
+        android:padding="15dp"
+        android:layout_width="match_parent"
+        android:layout_height="390dp"
+        android:textSize="20sp"
+        android:textAlignment="center"
+        android:text="공지사항 내용입니다."
+        android:id="@+id/textView_notice_content" />
+    <ListView
+        android:layout_above="@+id/footer"
+        android:id="@+id/tab2_list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        />
+
+    <TextView
+        android:id="@+id/footer"
+
+        android:layout_width="match_parent"
+        android:layout_height="200dip"
+        android:background="#0000ff"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:text="bottom"/>
+
+
+
 </LinearLayout>

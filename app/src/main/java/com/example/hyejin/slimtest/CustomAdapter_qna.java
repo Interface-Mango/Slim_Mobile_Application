@@ -1,8 +1,5 @@
 package com.example.hyejin.slimtest;
 
-/**
- * Created by hyejin on 2016-07-06.
- */
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,14 +9,16 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
-public class CustomAdapter extends BaseAdapter {
-
+/**
+ * Created by hyejin on 2016-07-21.
+ */
+public class CustomAdapter_qna  extends BaseAdapter {
     // 문자열을 보관 할 ArrayList
     Context context;
     ArrayList<list_item> m_List;
 
     //생성자
-    public CustomAdapter(Context context, ArrayList<list_item> m_List) {
+    public CustomAdapter_qna(Context context, ArrayList<list_item> m_List) {
         this.context = context;
         this.m_List = m_List;
     }
@@ -52,17 +51,17 @@ public class CustomAdapter extends BaseAdapter {
         if ( convertView == null ) {
             // view가 null일 경우 커스텀 레이아웃을 얻어 옴
             LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            convertView = inflater.inflate(R.layout.activity_custom_list, parent, false);
+            convertView = inflater.inflate(R.layout.activity_custom_list_qna, parent, false);
 
-//            // TextView에 현재 position의 문자열 추가
-//            TextView num = (TextView) convertView.findViewById(R.id.num);
-//            num.setText(m_List.get(position).getNum());
+            // TextView에 현재 position의 문자열 추가
+            TextView num = (TextView) convertView.findViewById(R.id.num_qna);
+            num.setText(m_List.get(position).getNum());
 
-            TextView title = (TextView) convertView.findViewById(R.id.title);
+            TextView title = (TextView) convertView.findViewById(R.id.title_qna);
             title.setText(m_List.get(position).getTitle());
 
-//            TextView date = (TextView) convertView.findViewById(R.id.date);
-//            date.setText(m_List.get(position).getDate().toString());
+            TextView date = (TextView) convertView.findViewById(R.id.date_qna);
+            date.setText(m_List.get(position).getDate().toString());
 
             // 버튼을 터치 했을 때 이벤트 발생
 //            TextView num_btn = (TextView) convertView.findViewById(R.id.title);
@@ -94,8 +93,6 @@ public class CustomAdapter extends BaseAdapter {
 
 
 
-
-
    /* // 외부에서 아이템 추가 요청 시 사용
     public void add(String _msg) {
         boolean add = m_List.add(_msg);
@@ -106,5 +103,4 @@ public class CustomAdapter extends BaseAdapter {
         m_List.remove(_position);
     }
 */
-
 }

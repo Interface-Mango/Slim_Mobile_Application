@@ -31,9 +31,6 @@
             android:name=".classActivity"
             android:theme="@style/AppTheme" />
         <activity
-            android:name=".hwActivity"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
             android:name=".classMain"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
@@ -41,7 +38,7 @@
             android:theme="@style/AppTheme" />
         <activity
             android:name=".noticeActivity_detail"
-            android:theme="@style/AppTheme" />
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".myQuestionActivity"
             android:theme="@style/AppTheme" />
@@ -61,6 +58,13 @@
             android:name=".LoginActivity"
             android:label="@string/title_activity_login" >
         </activity>
+        <activity
+            android:name=".myQuestionActivity_modify"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".adviceNoteActivity_detail"
+            android:theme="@style/AppTheme.NoActionBar" />
+
     </application>
 
 </manifest>

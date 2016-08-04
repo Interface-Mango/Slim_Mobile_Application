@@ -25,6 +25,7 @@ public class attendActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_attend);
+        setTitle("출석 확인");
         // Xml에서 추가한 ListView 연결
         m_ListView = (ListView) findViewById(R.id.listview_attend);
         m_List = new ArrayList<list_item_attend>();

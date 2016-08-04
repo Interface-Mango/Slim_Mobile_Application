@@ -5,20 +5,21 @@
     android:weightSum="1">
 
     <TextView
-        android:id="@+id/textView_myque_title"
+        android:id="@+id/textView_advicenote_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="동적할당 몰랐던 것"
+        android:text="0과목 중간고사 날짜"
         android:layout_marginLeft="0dp"
         android:layout_weight="0.25" />
 
     <TextView
-        android:id="@+id/textView_myque_date"
+        android:id="@+id/textView_advicenote_date"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="2016-08-02"
+        android:text="2016-08-06"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:layout_marginLeft="250dp" />
+        android:layout_marginLeft="100dp"
+        android:layout_gravity="center_horizontal" />
 
     <View
         android:layout_width="wrap_content"
@@ -28,25 +29,26 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="310dp"
-        android:text="동적할당은 랄라라라라라라라라라라라라"
-        android:id="@+id/textView_myque_content"
+        android:text="00과목 중간고사 날짜"
+        android:id="@+id/textView_advicenote_content"
         android:layout_weight="0.66" />
-<LinearLayout
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:orientation="horizontal"
-    android:layout_gravity="right" >
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="수정"
-        android:id="@+id/myque_modify" />
 
-    <Button
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="삭제"
-        android:id="@+id/myque_delete"
-        android:layout_weight="0.25" />
-</LinearLayout>
+        android:orientation="horizontal"
+        android:layout_gravity="right" >
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="수정"
+            android:id="@+id/advicenote_modify" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="삭제"
+            android:id="@+id/advicenote_delete"
+            android:layout_weight="0.25" />
+    </LinearLayout>
 </LinearLayout>

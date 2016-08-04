@@ -7,29 +7,29 @@ import android.view.View;
 import android.widget.Button;
 
 /**
- * Created by hyejin on 2016-07-21.
+ * Created by hyejin on 2016-08-04.
  */
-public class myQuestionActivity_detail extends AppCompatActivity{
-
-    Button myque_modify;
-    Button myque_delete;
+public class adviceNoteActivity_detail extends AppCompatActivity {
+    Button advicenote_modify;
+    Button advicenote_delete;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_myquestion_detail);
+        setContentView(R.layout.activity_advicenote_detail);
 
-        myque_modify = (Button) findViewById(R.id.myque_modify);
-        myque_delete = (Button) findViewById(R.id.myque_delete);
+        advicenote_modify = (Button) findViewById(R.id.advicenote_modify);
+        advicenote_delete = (Button) findViewById(R.id.advicenote_delete);
 
-        myque_modify.setOnClickListener(new View.OnClickListener() {
+
+        advicenote_modify.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), noticeActivity.class);
                 startActivity(intent);
             }
         });
-        myque_delete.setOnClickListener(new View.OnClickListener() {
+        advicenote_delete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), noticeActivity.class);
