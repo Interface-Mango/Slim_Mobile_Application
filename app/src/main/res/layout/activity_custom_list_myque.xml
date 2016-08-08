@@ -3,42 +3,30 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="horizontal"
-    >
+    android:layout_height="68dp"
+    android:orientation="vertical"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp"
+    android:paddingTop="16dp">
 
     <TextView
-        android:id="@+id/num_myque"
+        android:id="@+id/title_myque"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="1"
-        android:layout_marginLeft="5dp"
-        android:textSize="25sp"
+        android:text="Text"
         android:textStyle="bold"
+        android:textSize="16sp"
+        android:paddingBottom="4dp"
+        android:textAppearance="?android:attr/textAppearanceLarge"
         />
 
-    <LinearLayout
+    <TextView
+        android:id="@+id/date_myque"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="15dp"
-        android:orientation="vertical" >
-
-        <TextView
-            android:id="@+id/title_myque"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Text"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            />
-
-        <TextView
-            android:id="@+id/date_myque"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Date"
-            android:layout_marginRight="10dp"
-            />
-
-    </LinearLayout>
+        android:textSize="10sp"
+        android:textColor="#757575"
+        android:text="Date"
+        />
 
 </LinearLayout>

@@ -149,7 +149,7 @@ public class classActivity extends AppCompatActivity {
                     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                         Intent intent = new Intent(getApplicationContext(), classMain.class);
                         intent.putExtra("user",m_List.get(position));
-//                        intent.putExtra("NAME",m_List.get(position).title);
+                        intent.putExtra("NAME",m_List.get(position).title);
                         startActivity(intent);
                     }
                 });

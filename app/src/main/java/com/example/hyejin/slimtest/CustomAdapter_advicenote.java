@@ -15,10 +15,10 @@ import java.util.ArrayList;
 public class CustomAdapter_advicenote extends BaseAdapter {
     // 문자열을 보관 할 ArrayList
     Context context;
-    ArrayList<list_item> m_List;
+    ArrayList<list_item_advice_note> m_List;
 
     //생성자
-    public CustomAdapter_advicenote(Context context, ArrayList<list_item> m_List) {
+    public CustomAdapter_advicenote(Context context, ArrayList<list_item_advice_note> m_List) {
         this.context = context;
         this.m_List = m_List;
     }
@@ -54,14 +54,13 @@ public class CustomAdapter_advicenote extends BaseAdapter {
             convertView = inflater.inflate(R.layout.activity_custom_list_advicenote, parent, false);
 
             // TextView에 현재 position의 문자열 추가
-            TextView num = (TextView) convertView.findViewById(R.id.num_advicenote);
-            num.setText(m_List.get(position).getNum());
 
-            TextView title = (TextView) convertView.findViewById(R.id.title_advicenote);
-            title.setText(m_List.get(position).getTitle());
 
-            TextView date = (TextView) convertView.findViewById(R.id.date_advicenote);
-            date.setText(m_List.get(position).getDate().toString());
+            TextView title = (TextView) convertView.findViewById(R.id.title_advice);
+            title.setText(m_List.get(position).getAdvice_title());
+
+            TextView date = (TextView) convertView.findViewById(R.id.date_advice);
+            date.setText(m_List.get(position).getAdvice_date().toString());
 
             // 버튼을 터치 했을 때 이벤트 발생
 //            TextView num_btn = (TextView) convertView.findViewById(R.id.title);

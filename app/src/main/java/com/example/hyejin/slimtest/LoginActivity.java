@@ -288,7 +288,8 @@ public class LoginActivity extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(), dataList.get(1)+"님 환영합니다!", Toast.LENGTH_LONG).show();
                 Intent intent = new Intent(getApplicationContext(), classActivity.class);
 
-                UserInfo = dataList;    // UserInfo는 LoginActivity에서 static으로 갖고 있기.
+                UserInfo = dataList;
+                intent.putExtra("user_info",UserInfo.get(0).toString());// UserInfo는 LoginActivity에서 static으로 갖고 있기.
                 startActivity(intent);
                 finish();
             } catch(JSONException ex) {

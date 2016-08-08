@@ -12,10 +12,10 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="3.67"
+        android:layout_height="wrap_content"
         android:background="#fcdd32"
-        android:gravity="center">
+        android:gravity="center"
+        android:layout_weight="1.39">
 
         <TextView
             android:id="@+id/bar"
@@ -63,11 +63,7 @@
             android:layout_width="wrap_content"
             android:layout_height="50sp"
             android:src="@drawable/attendence"/>
-        <ImageView
-            android:id="@+id/qna_btn"
-            android:layout_width="wrap_content"
-            android:layout_height="50sp"
-            android:src="@drawable/qna"/>
+
         <ImageView
             android:id="@+id/advicenote_btn"
             android:layout_width="wrap_content"

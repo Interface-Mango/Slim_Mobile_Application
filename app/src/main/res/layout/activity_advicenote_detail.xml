@@ -2,53 +2,120 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:weightSum="1">
+    android:background="@color/white">
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:layout_weight="1">
 
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    >
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp">
     <TextView
         android:id="@+id/textView_advicenote_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:padding="15dp"
+        android:textSize="20sp"
         android:text="0과목 중간고사 날짜"
-        android:layout_marginLeft="0dp"
+        android:textStyle="bold"
         android:layout_weight="0.25" />
 
+
+
+    <ImageView
+        android:layout_width="30dp"
+        android:layout_height="35dp"
+        android:src="@drawable/clock"
+        android:paddingLeft="15dp"
+        android:id="@+id/imageView"
+        android:layout_alignBottom="@+id/textView_advicenote_date"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
     <TextView
         android:id="@+id/textView_advicenote_date"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:paddingLeft="6dp"
+        android:paddingBottom="8dp"
+        android:textSize="15dp"
         android:text="2016-08-06"
+        android:textColor="#BDBDBD"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:layout_marginLeft="100dp"
-        android:layout_gravity="center_horizontal" />
+        android:layout_below="@+id/textView_advicenote_title"
+        android:layout_toRightOf="@+id/imageView"
+        android:layout_toEndOf="@+id/imageView" />
+
+
+    </RelativeLayout>
 
     <View
         android:layout_width="wrap_content"
+        android:paddingLeft="18dp"
+        android:paddingRight="18dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
         android:layout_height="0.3dp"
-        android:background="#000000" />
+        android:background="#BDBDBD" />
 
     <TextView
+        android:paddingTop="25dp"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
+        android:paddingBottom="25dp"
         android:layout_width="match_parent"
-        android:layout_height="310dp"
+        android:layout_height="367dp"
         android:text="00과목 중간고사 날짜"
-        android:id="@+id/textView_advicenote_content"
-        android:layout_weight="0.66" />
+        android:textSize="15sp"
+        android:id="@+id/textView_advicenote_content" />
 
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:layout_gravity="right" >
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="수정"
-            android:id="@+id/advicenote_modify" />
 
+    </LinearLayout>
+</LinearLayout>
+    </ScrollView>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="bottom"
+        android:padding="6dip"
+        android:background="@color/white">
+        
         <Button
+            android:id="@+id/modify_advice"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="수정"
+            android:background="@color/themeColor"
+            />
+        <Button
+            android:id="@+id/delete_advice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:text="삭제"
-            android:id="@+id/advicenote_delete"
-            android:layout_weight="0.25" />
+            android:background="@color/themeColor"
+            />
+        <Button
+            android:id="@+id/edit_advice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="글쓰기"
+            android:background="@color/themeColor"
+            />
+
     </LinearLayout>
 </LinearLayout>

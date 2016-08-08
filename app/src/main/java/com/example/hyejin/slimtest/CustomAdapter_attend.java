@@ -16,6 +16,7 @@ public class CustomAdapter_attend extends BaseAdapter{
     // 문자열을 보관 할 ArrayList
     Context context;
     ArrayList<list_item_attend> m_List;
+    private String check="";
 
     //생성자
     public CustomAdapter_attend(Context context, ArrayList<list_item_attend> m_List) {
@@ -56,49 +57,29 @@ public class CustomAdapter_attend extends BaseAdapter{
 
             // TextView에 현재 position의 문자열 추가
             TextView num = (TextView) convertView.findViewById(R.id.time_attend);
-            num.setText(m_List.get(position).getTime());
+            num.setText(m_List.get(position).getAttend_time().toString());
 
             TextView title = (TextView) convertView.findViewById(R.id.check_attend);
-            title.setText(m_List.get(position).getCheck());
 
-            // 버튼을 터치 했을 때 이벤트 발생
-//            TextView num_btn = (TextView) convertView.findViewById(R.id.title);
-//            num_btn.setOnClickListener(new OnClickListener() {
-//
-//                @Override
-//                public void onClick(View v) {
-//                    // 터치 시 해당 아이템 이름 출력
-//                    Intent intent = new Intent(context.getApplicationContext(), classMain.class); // 다음 넘어갈 클래스 지정
-//                    context.startActivity(intent);
-//                }
-//            });
-//
-//            // 리스트 아이템을 터치 했을 때 이벤트 발생
-//            convertView.setOnClickListener(new View.OnClickListener() {
-//
-//                @Override
-//                public void onClick(View v) {
-//                    Intent intent = new Intent(getApplicationContext(), classMain.class); // 다음 넘어갈 클래스 지정
-//                    startActivity(intent);
-//                }
-//            });
 
+                if (m_List.get(position).getAttend_check().toString() == "1") {
+                    check = "출석";
+                    title.setText(check);
+                } else if (m_List.get(position).getAttend_check().toString() == "2") {
+                    check = "지각";
+                    title.setText(check);
+                } else if(m_List.get(position).getAttend_check().toString() == "3"){
+                    check = "결석";
+                    title.setText(check);
+                }
 
         }
+
+
 
         return convertView;
     }
 
 
 
-   /* // 외부에서 아이템 추가 요청 시 사용
-    public void add(String _msg) {
-        boolean add = m_List.add(_msg);
-    }
-
-    // 외부에서 아이템 삭제 요청 시 사용
-    public void remove(int _position) {
-        m_List.remove(_position);
-    }
-*/
 }

@@ -29,7 +29,7 @@ import java.util.ArrayList;
 public class myQuestionActivity extends AppCompatActivity {
     private ListView                m_ListView;
     private CustomAdapter_myque           m_Adapter;
-    ArrayList<list_item> m_List;
+    ArrayList<list_item_myque> m_List;
 
 
     @Override
@@ -38,9 +38,11 @@ public class myQuestionActivity extends AppCompatActivity {
         setContentView(R.layout.activity_myquestion);
         setTitle("나의 질문");
         m_ListView = (ListView) findViewById(R.id.listview_myque);
-        m_List = new ArrayList<list_item>();
+        m_List = new ArrayList<list_item_myque>();
+        final list_item item = (list_item) getIntent().getSerializableExtra("user_info");
+
         SelectSubjectList selectSubjectList = new SelectSubjectList();
-        selectSubjectList.execute("http://14.63.196.146/subject.php", LoginActivity.UserInfo.get(4).toString());
+        selectSubjectList.execute("http://14.63.196.146/my_question.php",item.num,LoginActivity.UserInfo.get(0).toString());
 
     }
 
@@ -76,7 +78,7 @@ public class myQuestionActivity extends AppCompatActivity {
                     //   서버로 값 전송
                     //--------------------------
                     StringBuffer buffer = new StringBuffer();
-                    buffer.append("sub_ids").append("=").append(params[1]);
+                    buffer.append("sub_id").append("=").append(params[1]).append("&").append("std_id").append("=").append(params[2]);
 
                     OutputStreamWriter outStream = new OutputStreamWriter(conn.getOutputStream(), "UTF-8");
                     PrintWriter writer = new PrintWriter(outStream);
@@ -108,12 +110,12 @@ public class myQuestionActivity extends AppCompatActivity {
 
         @Override
         protected void onPostExecute(String str) {
-            String sub_id = "";
-            String sub_name = "";
-            String lecturer_id = "";
-            String time_string = "";
-            String location = "";
-            String lecturer_name = "";
+            String myque_id = "";
+            String myque_std_num = "";
+            String myque_sub_num = "";
+            String myque_content = "";
+            String myque_date = "";
+
 
 
             try {
@@ -131,14 +133,14 @@ public class myQuestionActivity extends AppCompatActivity {
                 String[] tempList = null;
                 for(int i=0;i<ja.length();i++) {
                     JSONObject jo = ja.getJSONObject(i);//{}
-                    sub_id = jo.getString("sub_id");
-                    sub_name = jo.getString("sub_name");
-                    lecturer_id = jo.getString("lecturer_id");
-                    time_string = jo.getString("time");
-                    location = jo.getString("location");
-                    lecturer_name = jo.getString("user_name");
+                    myque_id = jo.getString("id");
+                    myque_std_num = jo.getString("std_id");
+                    myque_sub_num = jo.getString("sub_id");
+                    myque_content = jo.getString("content");
+                    myque_date = jo.getString("date");
 
-                    m_List.add(new list_item(sub_id, sub_name, time_string, location, lecturer_name));
+
+                    m_List.add(new list_item_myque(myque_id, myque_std_num, myque_sub_num, myque_content, myque_date));
 //                showProgress(false);
                 }
 
@@ -150,7 +152,7 @@ public class myQuestionActivity extends AppCompatActivity {
 
                     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                         Intent intent = new Intent(getApplicationContext(), myQuestionActivity_detail.class);
-                        intent.putExtra("NAME",m_List.get(position).title);
+                        intent.putExtra("myque_detail",m_List.get(position));
                         startActivity(intent);
                     }
                 });

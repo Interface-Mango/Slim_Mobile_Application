@@ -28,7 +28,7 @@ import java.util.ArrayList;
 public class adviceNoteActivity extends AppCompatActivity {
     private ListView                m_ListView;
     private CustomAdapter_advicenote           m_Adapter;
-    private ArrayList<list_item>    m_List;
+    private ArrayList<list_item_advice_note>    m_List;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,10 +37,11 @@ public class adviceNoteActivity extends AppCompatActivity {
         setContentView(R.layout.activity_advicenote);
         // Xml에서 추가한 ListView 연결
         m_ListView = (ListView) findViewById(R.id.listview_advicenote);
-        m_List = new ArrayList<list_item>();
+        m_List = new ArrayList<list_item_advice_note>();
 
+        final list_item item = (list_item) getIntent().getSerializableExtra("advice");
         SelectSubjectList selectSubjectList = new SelectSubjectList();
-        selectSubjectList.execute("http://14.63.196.146/subject.php", LoginActivity.UserInfo.get(4).toString());
+        selectSubjectList.execute("http://14.63.196.146/advice_note.php",item.num,LoginActivity.UserInfo.get(0).toString());
 
     }
 
@@ -72,7 +73,7 @@ public class adviceNoteActivity extends AppCompatActivity {
                     //   서버로 값 전송
                     //--------------------------
                     StringBuffer buffer = new StringBuffer();
-                    buffer.append("sub_ids").append("=").append(params[1]);
+                    buffer.append("sub_id").append("=").append(params[1]).append("&").append("std_id").append("=").append(params[2]);
 
                     OutputStreamWriter outStream = new OutputStreamWriter(conn.getOutputStream(), "UTF-8");
                     PrintWriter writer = new PrintWriter(outStream);
@@ -104,12 +105,12 @@ public class adviceNoteActivity extends AppCompatActivity {
 
         @Override
         protected void onPostExecute(String str) {
-            String sub_id = "";
-            String sub_name = "";
-            String lecturer_id = "";
-            String time_string = "";
-            String location = "";
-            String lecturer_name = "";
+            String advice_note_id = "";
+            String advice_std_num = "";
+            String advice_sub_num = "";
+            String advice_title = "";
+            String advice_content = "";
+            String advice_date = "";
 
 
             try {
@@ -127,14 +128,14 @@ public class adviceNoteActivity extends AppCompatActivity {
                 String[] tempList = null;
                 for(int i=0;i<ja.length();i++) {
                     JSONObject jo = ja.getJSONObject(i);//{}
-                    sub_id = jo.getString("sub_id");
-                    sub_name = jo.getString("sub_name");
-                    lecturer_id = jo.getString("lecturer_id");
-                    time_string = jo.getString("time");
-                    location = jo.getString("location");
-                    lecturer_name = jo.getString("user_name");
+                    advice_note_id = jo.getString("id");
+                    advice_std_num = jo.getString("std_id");
+                    advice_sub_num = jo.getString("sub_id");
+                    advice_title = jo.getString("title");
+                    advice_content = jo.getString("content");
+                    advice_date = jo.getString("date");
 
-                    m_List.add(new list_item(sub_id, sub_name, time_string, location, lecturer_name));
+                    m_List.add(new list_item_advice_note(advice_note_id, advice_std_num, advice_sub_num, advice_title, advice_content,advice_date));
 //                showProgress(false);
                 }
 
@@ -146,7 +147,8 @@ public class adviceNoteActivity extends AppCompatActivity {
 
                     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                         Intent intent = new Intent(getApplicationContext(), adviceNoteActivity_detail.class);
-                        intent.putExtra("NAME",m_List.get(position).title);
+                        intent.putExtra("advice_detail",m_List.get(position));
+
                         startActivity(intent);
                     }
                 });

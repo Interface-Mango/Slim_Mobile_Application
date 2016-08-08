@@ -10,8 +10,6 @@
     tools:context="com.example.hyejin.slimtest.noticeActivity">
 
 
-
-
     <ListView
         android:id="@+id/listview_notice"
         android:layout_width="match_parent"

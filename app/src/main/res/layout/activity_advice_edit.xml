@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+
+    <!--android:singleLine="false"
+         자동으로 라인을 아래로 내리기-->
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/advice_edit_title"
+        android:padding="10dp"
+        android:hint="제목"
+        android:background="#ffffff"
+        android:textColor="#000000"
+        android:singleLine="false"
+        android:textCursorDrawable="@null"
+        android:layout_weight="0.04" />
+    <View
+        android:layout_width="wrap_content"
+        android:layout_height="0.6dp"
+        android:background="#BDBDBD" />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/advice_edit_content"
+        android:padding="10dp"
+        android:textColor="#000000"
+        android:textCursorDrawable="@null"
+        android:hint="내용"
+        android:background="#ffffff"
+        android:singleLine="false"
+        android:gravity="top"
+        android:layout_weight="0.85" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="bottom"
+        android:padding="6dip"
+        android:background="@color/white">
+
+        <Button
+            android:id="@+id/edit_advice_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="취소"
+            android:background="@color/themeColor"
+            />
+        <Button
+            android:id="@+id/edit_advice_enroll"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="등록"
+            android:background="@color/themeColor"
+            />
+
+
+    </LinearLayout>
+</LinearLayout>

@@ -44,7 +44,7 @@
             android:theme="@style/AppTheme" />
         <activity
             android:name=".myQuestionActivity_detail"
-            android:theme="@style/AppTheme" />
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".attendActivity"
             android:theme="@style/AppTheme" />
@@ -64,6 +64,12 @@
         <activity
             android:name=".adviceNoteActivity_detail"
             android:theme="@style/AppTheme.NoActionBar" />
+
+        <activity android:name=".adviceNoteActivity_modify"
+            android:theme="@style/AppTheme.NoActionBar" />
+
+        <activity android:name=".adviceNoteActivity_edit"
+            android:theme="@style/AppTheme" />
 
     </application>
 
