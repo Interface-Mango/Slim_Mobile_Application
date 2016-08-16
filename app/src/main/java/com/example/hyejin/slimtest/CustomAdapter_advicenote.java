@@ -1,10 +1,12 @@
 package com.example.hyejin.slimtest;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.Button;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -16,7 +18,7 @@ public class CustomAdapter_advicenote extends BaseAdapter {
     // 문자열을 보관 할 ArrayList
     Context context;
     ArrayList<list_item_advice_note> m_List;
-
+    String _msg;
     //생성자
     public CustomAdapter_advicenote(Context context, ArrayList<list_item_advice_note> m_List) {
         this.context = context;
@@ -62,6 +64,9 @@ public class CustomAdapter_advicenote extends BaseAdapter {
             TextView date = (TextView) convertView.findViewById(R.id.date_advice);
             date.setText(m_List.get(position).getAdvice_date().toString());
 
+            Button delete = (Button) convertView.findViewById(R.id.delete_advice);
+
+
             // 버튼을 터치 했을 때 이벤트 발생
 //            TextView num_btn = (TextView) convertView.findViewById(R.id.title);
 //            num_btn.setOnClickListener(new OnClickListener() {
@@ -91,15 +96,14 @@ public class CustomAdapter_advicenote extends BaseAdapter {
     }
 
 
+// // 외부에서 아이템 추가 요청 시 사용
+//    public void add(String _msg) {
+//        boolean add = m_List.add(_msg);
+//    }
 
-   /* // 외부에서 아이템 추가 요청 시 사용
-    public void add(String _msg) {
-        boolean add = m_List.add(_msg);
-    }
+//    // 외부에서 아이템 삭제 요청 시 사용
+//    private void remove(int _position) {
+//        m_List.remove(_position);
+//    }
 
-    // 외부에서 아이템 삭제 요청 시 사용
-    public void remove(int _position) {
-        m_List.remove(_position);
-    }
-*/
 }

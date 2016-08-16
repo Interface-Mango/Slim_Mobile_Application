@@ -1,11 +1,15 @@
 package com.example.hyejin.slimtest;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Parcelable;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
@@ -30,6 +34,7 @@ public class classActivity extends AppCompatActivity {
     private ListView                m_ListView;
     private CustomAdapter           m_Adapter;
     private ArrayList<list_item>    m_List;
+    boolean bLog = false; // false : 로그아웃 상태
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,7 +50,56 @@ public class classActivity extends AppCompatActivity {
         selectSubjectList.execute("http://14.63.196.146/subject.php", LoginActivity.UserInfo.get(4).toString());
 
     }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        // 메뉴버튼이 처음 눌러졌을 때 실행되는 콜백메서드
+        // 메뉴버튼을 눌렀을 때 보여줄 menu 에 대해서 정의
+        getMenuInflater().inflate(R.menu.main, menu);
+        Log.d("test", "onCreateOptionsMenu - 최초 메뉴키를 눌렀을 때 호출됨");
+        return true;
+    }
 
+    @Override
+    public boolean onPrepareOptionsMenu(Menu menu) {
+
+        return super.onPrepareOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // 메뉴의 항목을 선택(클릭)했을 때 호출되는 콜백메서드
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        Log.d("test", "onOptionsItemSelected - 메뉴항목을 클릭했을 때 호출됨");
+
+        int id = item.getItemId();
+
+
+        switch(id) {
+            case R.id.menu_logout:
+                new AlertDialog.Builder(this)
+                        .setTitle("로그아웃").setMessage("로그아웃 하시겠습니까?")
+                        .setPositiveButton("로그아웃", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int whichButton) {
+                                Intent i = new Intent(classActivity.this, LoginActivity.class);
+                                i.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP|Intent.FLAG_ACTIVITY_SINGLE_TOP);
+                                startActivity(i);
+                            }
+                        })
+                        .setNegativeButton("취소", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int whichButton) {
+
+                            }
+                        })
+                        .show();
+
+                return true;
+
+        }
+        return super.onOptionsItemSelected(item);
+    }
     private class SelectSubjectList extends AsyncTask<String, Integer, String> {
 
         @Override

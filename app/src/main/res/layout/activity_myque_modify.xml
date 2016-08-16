@@ -1,25 +1,69 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:weightSum="1">
+    android:background="@color/white">
 
-    <EditText
+    <!--android:singleLine="false"
+         자동으로 라인을 아래로 내리기-->
+
+    <TextView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/editText"
-        android:layout_weight="0.06" />
+        android:layout_height="50dp"
+        android:id="@+id/myque_modify_title"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:background="#ffffff"
+        android:textColor="#000000"
+        android:textStyle="bold"
+        android:textSize="20dp"
+        />
 
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/editText2"
-        android:layout_weight="0.93" />
-
-    <Button
+    <View
         android:layout_width="wrap_content"
+        android:layout_height="0.6dp"
+        android:background="#BDBDBD" />
+
+    <EditText
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="수정"
-        android:id="@+id/button_myque_detail_modify"
-        android:layout_gravity="center_horizontal" />
+        android:id="@+id/myque_modify_content"
+        android:padding="10dp"
+        android:textColor="#000000"
+        android:textCursorDrawable="@null"
+        android:background="#ffffff"
+        android:singleLine="false"
+        android:gravity="top"
+        android:layout_weight="0.85" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="bottom"
+        android:padding="6dip"
+        android:background="@color/white">
+
+        <Button
+            android:id="@+id/modify_myque_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="취소"
+            android:background="@color/themeColor"
+            />
+        <Button
+            android:id="@+id/modify_myque_enroll"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="등록"
+            android:background="@color/themeColor"
+            />
+
+
+    </LinearLayout>
 </LinearLayout>

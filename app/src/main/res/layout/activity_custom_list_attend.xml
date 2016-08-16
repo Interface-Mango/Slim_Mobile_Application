@@ -30,6 +30,7 @@
             android:textAlignment="center"
             android:paddingRight="10dp"
             android:text="출석"
+            android:textStyle="bold"
             android:layout_weight="0.15"
             />
 

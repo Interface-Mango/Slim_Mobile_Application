@@ -81,7 +81,10 @@ public class attendActivity extends AppCompatActivity {
                         //   서버로 값 전송
                         //--------------------------
                         StringBuffer buffer = new StringBuffer();
-                        buffer.append("std_id").append("=").append(params[1]).append("&").append("sub_id").append("=").append(params[2]);
+                        buffer.append("std_id").append("=").append(params[1]).append("&").
+                                append("sub_id").append("=").append(params[2]).append("&").
+                                append("select").append("=").append("100");
+
 
                         OutputStreamWriter outStream = new OutputStreamWriter(conn.getOutputStream(), "UTF-8");
                         PrintWriter writer = new PrintWriter(outStream);

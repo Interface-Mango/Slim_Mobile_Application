@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -26,9 +27,12 @@ import java.util.ArrayList;
  * Created by hyejin on 2016-07-04.
  */
 public class adviceNoteActivity extends AppCompatActivity {
-    private ListView                m_ListView;
-    private CustomAdapter_advicenote           m_Adapter;
-    private ArrayList<list_item_advice_note>    m_List;
+    public ListView                m_ListView;
+    public CustomAdapter_advicenote           m_Adapter;
+    public  ArrayList<list_item_advice_note>    m_List;
+    Button advice_edit;
+    Button advice_back;
+    public list_item item;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,11 +43,32 @@ public class adviceNoteActivity extends AppCompatActivity {
         m_ListView = (ListView) findViewById(R.id.listview_advicenote);
         m_List = new ArrayList<list_item_advice_note>();
 
+        advice_edit = (Button) findViewById(R.id.edit_advice);
+        advice_back = (Button) findViewById(R.id.back_advice);
+
         final list_item item = (list_item) getIntent().getSerializableExtra("advice");
         SelectSubjectList selectSubjectList = new SelectSubjectList();
-        selectSubjectList.execute("http://14.63.196.146/advice_note.php",item.num,LoginActivity.UserInfo.get(0).toString());
+        selectSubjectList.execute("http://14.63.196.146/advice_note.php",LoginActivity.UserInfo.get(0).toString(),item.num);
 
+        m_ListView.setAdapter(m_Adapter);
+
+
+        advice_back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+        advice_edit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), adviceNoteActivity_edit.class);
+                intent.putExtra("advice_edit",item);
+                startActivity(intent);
+            }
+        });
     }
+
 
     private class SelectSubjectList extends AsyncTask<String, Integer, String> {
 
@@ -73,7 +98,9 @@ public class adviceNoteActivity extends AppCompatActivity {
                     //   서버로 값 전송
                     //--------------------------
                     StringBuffer buffer = new StringBuffer();
-                    buffer.append("sub_id").append("=").append(params[1]).append("&").append("std_id").append("=").append(params[2]);
+                    buffer.append("std_id").append("=").append(params[1]).append("&")
+                            .append("sub_id").append("=").append(params[2]).append("&")
+                            .append("select").append("=").append("100");
 
                     OutputStreamWriter outStream = new OutputStreamWriter(conn.getOutputStream(), "UTF-8");
                     PrintWriter writer = new PrintWriter(outStream);
@@ -111,6 +138,7 @@ public class adviceNoteActivity extends AppCompatActivity {
             String advice_title = "";
             String advice_content = "";
             String advice_date = "";
+            final list_item item = (list_item) getIntent().getSerializableExtra("advice");
 
 
             try {
@@ -125,7 +153,6 @@ public class adviceNoteActivity extends AppCompatActivity {
                     return;
                 }
                 JSONArray ja = root.getJSONArray("result");//[{}]
-                String[] tempList = null;
                 for(int i=0;i<ja.length();i++) {
                     JSONObject jo = ja.getJSONObject(i);//{}
                     advice_note_id = jo.getString("id");
@@ -148,7 +175,7 @@ public class adviceNoteActivity extends AppCompatActivity {
                     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                         Intent intent = new Intent(getApplicationContext(), adviceNoteActivity_detail.class);
                         intent.putExtra("advice_detail",m_List.get(position));
-
+                        intent.putExtra("advice_info",item);
                         startActivity(intent);
                     }
                 });

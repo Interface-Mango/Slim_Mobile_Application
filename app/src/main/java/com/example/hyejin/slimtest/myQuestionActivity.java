@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -30,6 +31,9 @@ public class myQuestionActivity extends AppCompatActivity {
     private ListView                m_ListView;
     private CustomAdapter_myque           m_Adapter;
     ArrayList<list_item_myque> m_List;
+    Button edit_myque;
+    Button back_myque;
+    public list_item item;
 
 
     @Override
@@ -41,9 +45,26 @@ public class myQuestionActivity extends AppCompatActivity {
         m_List = new ArrayList<list_item_myque>();
         final list_item item = (list_item) getIntent().getSerializableExtra("user_info");
 
-        SelectSubjectList selectSubjectList = new SelectSubjectList();
-        selectSubjectList.execute("http://14.63.196.146/my_question.php",item.num,LoginActivity.UserInfo.get(0).toString());
+        edit_myque = (Button) findViewById(R.id.edit_myque);
+        back_myque = (Button) findViewById(R.id.back_myque);
 
+        SelectSubjectList selectSubjectList = new SelectSubjectList();
+        selectSubjectList.execute("http://14.63.196.146/my_question.php",LoginActivity.UserInfo.get(0).toString(),item.num);
+
+        back_myque.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+//        edit_myque.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent intent = new Intent(getApplicationContext(), myQuestionActivity_modify.class);
+//                intent.putExtra("modify_myque",item);
+//                startActivity(intent);
+//            }
+//        });
     }
 
 //        m_List.add(new list_item("1","오버로딩 ",new Date(System.currentTimeMillis())));
@@ -59,6 +80,8 @@ public class myQuestionActivity extends AppCompatActivity {
                 // 연결 URL 설정
                 Log.d("params[0]", params[0]);
                 Log.d("params[1]", params[1]);
+                Log.d("params[2]", params[2]);
+
                 URL url = new URL(params[0]);  // URL 설정
                 // 커넥션 객체 생성
                 HttpURLConnection conn = (HttpURLConnection)url.openConnection();// 접속
@@ -78,7 +101,9 @@ public class myQuestionActivity extends AppCompatActivity {
                     //   서버로 값 전송
                     //--------------------------
                     StringBuffer buffer = new StringBuffer();
-                    buffer.append("sub_id").append("=").append(params[1]).append("&").append("std_id").append("=").append(params[2]);
+                    buffer.append("std_id").append("=").append(params[1]).append("&")
+                            .append("sub_id").append("=").append(params[2]).append("&")
+                            .append("select").append("=").append("100");
 
                     OutputStreamWriter outStream = new OutputStreamWriter(conn.getOutputStream(), "UTF-8");
                     PrintWriter writer = new PrintWriter(outStream);
@@ -115,7 +140,7 @@ public class myQuestionActivity extends AppCompatActivity {
             String myque_sub_num = "";
             String myque_content = "";
             String myque_date = "";
-
+            final list_item item = (list_item) getIntent().getSerializableExtra("user_info");
 
 
             try {
@@ -153,6 +178,7 @@ public class myQuestionActivity extends AppCompatActivity {
                     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                         Intent intent = new Intent(getApplicationContext(), myQuestionActivity_detail.class);
                         intent.putExtra("myque_detail",m_List.get(position));
+                        intent.putExtra("myque_info",item);
                         startActivity(intent);
                     }
                 });

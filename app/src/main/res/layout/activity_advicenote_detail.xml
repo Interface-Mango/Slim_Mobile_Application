@@ -108,14 +108,7 @@
             android:text="삭제"
             android:background="@color/themeColor"
             />
-        <Button
-            android:id="@+id/edit_advice"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="글쓰기"
-            android:background="@color/themeColor"
-            />
+
 
     </LinearLayout>
 </LinearLayout>
