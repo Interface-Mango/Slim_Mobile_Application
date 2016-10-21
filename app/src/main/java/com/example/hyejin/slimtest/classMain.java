@@ -33,6 +33,7 @@ public class classMain extends AppCompatActivity {
     ImageView questionButton;
     ImageView attendButton;
     ImageView advicenoteButton;
+    ImageView backButton;
     TextView sub_name;
 
 
@@ -41,14 +42,15 @@ public class classMain extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_class_main);
 
-        sub_name = (TextView) findViewById(R.id.bar);
+
         noticeButton = (ImageView) findViewById(R.id.notice_btn);
         questionButton = (ImageView) findViewById(R.id.question_btn);
         attendButton = (ImageView) findViewById(R.id.attendence_btn);
         advicenoteButton = (ImageView) findViewById(R.id.advicenote_btn);
+        backButton = (ImageView) findViewById(R.id.back_btn);
 
         final list_item item = (list_item) getIntent().getSerializableExtra("user");
-        sub_name.setText(item.title);
+        setTitle(item.title);
 
 
         //공지사항 페이지로 이동
@@ -91,6 +93,14 @@ public class classMain extends AppCompatActivity {
             }
         });
 
+        //과목선택 페이지로 이동
+        advicenoteButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), classActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
 }

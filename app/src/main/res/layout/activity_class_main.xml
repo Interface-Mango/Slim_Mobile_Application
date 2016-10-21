@@ -6,68 +6,70 @@
     android:background="#ffffff"
     android:orientation="vertical"
     android:weightSum="10"
+    android:layout_marginTop="15dp"
     tools:context="com.example.hyejin.slimtest.classActivity">
 
 
-
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="#fcdd32"
-        android:gravity="center"
-        android:layout_weight="1.39">
-
-        <TextView
-            android:id="@+id/bar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-
-            android:textColor="#ffffff"
-            android:textSize="25sp"
-            android:textStyle="bold"/>
-            <!--android:text="@string/sub_bar_name"-->
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:orientation="vertical"
-        android:layout_width="match_parent"
-        android:layout_height="376dp"
-        android:gravity="center"
-        android:weightSum="0"
-        android:layout_weight="5.59">
-
-        <ImageView
-            android:id="@+id/logo"
-            android:layout_weight="1"
-            android:layout_width="150sp"
-            android:layout_height="100sp"
-            android:src="@drawable/logo"
-            android:layout_gravity="center_horizontal" />
-
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="154dp"
+            android:gravity="center"
+            android:weightSum="1"
+            android:layout_marginTop="22dp"
+        android:layout_weight="2.17">
         <ImageView
             android:id="@+id/notice_btn"
-            android:layout_width="wrap_content"
-            android:layout_height="50sp"
-            android:src="@drawable/notice" />
+            android:layout_width="100sp"
+            android:layout_height="wrap_content"
+            android:src="@drawable/notice_btn"
+            android:layout_weight="0.5" />
 
 
     <ImageView
         android:id="@+id/question_btn"
-        android:layout_width="wrap_content"
-        android:layout_height="50sp"
-        android:src="@drawable/question"/>
+        android:layout_width="100sp"
+        android:layout_height="wrap_content"
+        android:src="@drawable/question_btn"
+        android:layout_weight="0.5" />
 
-        <ImageView
+</LinearLayout>
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="154dp"
+            android:layout_marginTop="12dp"
+            android:gravity="center"
+            android:weightSum="1"
+            android:layout_weight="1.76">
+
+            <ImageView
+                android:id="@+id/advicenote_btn"
+                android:layout_width="100sp"
+                android:layout_height="wrap_content"
+                android:src="@drawable/advicenote_btn"
+                android:layout_weight="0.5" />
+
+            <ImageView
             android:id="@+id/attendence_btn"
-            android:layout_width="wrap_content"
-            android:layout_height="50sp"
-            android:src="@drawable/attendence"/>
+            android:layout_width="100sp"
+            android:layout_height="wrap_content"
+            android:src="@drawable/attendence_btn"
+            android:layout_weight="0.5" />
 
+        </LinearLayout>
+    <LinearLayout
+        android:layout_marginTop="15dp"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="154dp"
+        android:gravity="center"
+
+        android:layout_weight="1.5">
         <ImageView
-            android:id="@+id/advicenote_btn"
+            android:id="@+id/back_btn"
             android:layout_width="wrap_content"
-            android:layout_height="50sp"
-            android:src="@drawable/advicenote"/>
-    </LinearLayout>
+            android:layout_height="match_parent"
+            android:src="@drawable/back_btn"/>
+        </LinearLayout>
 </LinearLayout>
