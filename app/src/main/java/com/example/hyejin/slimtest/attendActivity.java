@@ -1,12 +1,14 @@
 package com.example.hyejin.slimtest;
 
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.ImageView;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
@@ -42,7 +44,6 @@ public class attendActivity extends AppCompatActivity {
         m_ListView = (ListView) findViewById(R.id.listview_attend);
         m_List = new ArrayList<list_item_attend>();
 
-//
         //선택한 과목 정보 받아오기
         final list_item item = (list_item) getIntent().getSerializableExtra("attend");
 

@@ -41,7 +41,7 @@ public class myQuestionActivity_modify extends AppCompatActivity {
         final list_item_myque item = (list_item_myque) getIntent().getSerializableExtra("myque_modify");
         final list_item item1 = (list_item) getIntent().getSerializableExtra("myque_info");
 
-        myque_modify_title = (TextView)findViewById(R.id.myque_modify_title);
+
         myque_modify_content = (EditText)findViewById(R.id.myque_modify_content);
         modify_myque_enroll = (Button)findViewById(R.id.modify_myque_enroll);
         modify_myque_back = (Button)findViewById(R.id.modify_myque_back);
@@ -67,7 +67,7 @@ public class myQuestionActivity_modify extends AppCompatActivity {
                 finish();
             }
         });
-        myque_modify_title.setText(item.getMyque_content());
+
         myque_modify_content.setText(item.getMyque_content());
 }
 

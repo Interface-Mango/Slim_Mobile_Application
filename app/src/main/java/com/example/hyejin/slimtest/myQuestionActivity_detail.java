@@ -23,8 +23,8 @@ import java.net.URL;
 public class myQuestionActivity_detail extends AppCompatActivity{
     phpDelete phpDelete;
 
-    TextView textView_myque_title;
-    TextView textView_myque_date;
+ //   TextView textView_myque_title;
+    //TextView textView_myque_date;
     TextView textView_myque_content;
 
     Button modify_myque;
@@ -37,15 +37,15 @@ public class myQuestionActivity_detail extends AppCompatActivity{
         final list_item_myque item = (list_item_myque) getIntent().getSerializableExtra("myque_detail");
         final list_item item1 = (list_item) getIntent().getSerializableExtra("myque_info");
 
-        textView_myque_title = (TextView) findViewById(R.id.textView_myque_title);
-        textView_myque_date = (TextView) findViewById(R.id.textView_myque_date);
+        //textView_myque_title = (TextView) findViewById(R.id.textView_myque_title);
+        //textView_myque_date = (TextView) findViewById(R.id.textView_myque_date);
         textView_myque_content = (TextView) findViewById(R.id.textView_myque_content);
 
         modify_myque = (Button) findViewById(R.id.modify_myque);
         delete_myque = (Button) findViewById(R.id.delete_myque);
 
-        textView_myque_title.setText(item.getMyque_content());
-        textView_myque_date.setText(item.getMyque_date());
+        //textView_myque_title.setText(item.getMyque_content());
+        //textView_myque_date.setText(item.getMyque_date());
         textView_myque_content.setText(item.getMyque_content());
 
         modify_myque.setOnClickListener(new View.OnClickListener() {

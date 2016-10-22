@@ -4,11 +4,12 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="68dp"
+    android:layout_height="match_parent"
     android:orientation="vertical"
     android:paddingLeft="16dp"
     android:paddingRight="16dp"
-    android:paddingTop="16dp">
+    android:paddingTop="22dp"
+    android:paddingBottom="22dp">
 
         <TextView
             android:id="@+id/title_advice"
@@ -16,8 +17,8 @@
             android:layout_height="wrap_content"
             android:text="Text"
             android:textStyle="bold"
-            android:textSize="16sp"
-            android:paddingBottom="4dp"
+            android:textSize="19sp"
+            android:paddingBottom="9dp"
             android:textAppearance="?android:attr/textAppearanceLarge"
             />
 
@@ -25,7 +26,7 @@
             android:id="@+id/date_advice"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="10sp"
+            android:textSize="14sp"
             android:textColor="#757575"
             android:text="Date"
             />

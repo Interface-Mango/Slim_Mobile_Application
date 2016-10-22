@@ -22,8 +22,11 @@
                     android:id="@+id/textView_notice_title"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:padding="15dp"
-                    android:textSize="20sp"
+                    android:paddingTop="23dp"
+                    android:paddingLeft="15dp"
+                    android:paddingRight="15dp"
+                    android:paddingBottom="11dp"
+                    android:textSize="25sp"
                     android:text="0과목 중간고사 날짜"
                     android:textStyle="bold"
                     android:layout_weight="0.25" />
@@ -44,10 +47,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:paddingLeft="6dp"
-                    android:paddingBottom="8dp"
-                    android:textSize="15dp"
+                    android:paddingBottom="13dp"
+                    android:textSize="16dp"
                     android:text="2016-08-06"
-                    android:textColor="#BDBDBD"
+                    android:textColor="#575757"
                     android:textAppearance="?android:attr/textAppearanceLarge"
                     android:layout_below="@+id/textView_notice_title"
                     android:layout_toRightOf="@+id/imageView"
@@ -60,10 +63,11 @@
                 android:layout_width="wrap_content"
                 android:paddingLeft="18dp"
                 android:paddingRight="18dp"
+                android:layout_marginTop="10dp"
                 android:layout_marginLeft="15dp"
                 android:layout_marginRight="15dp"
                 android:layout_height="0.3dp"
-                android:background="#BDBDBD" />
+                android:background="#575757" />
 
             <TextView
                 android:paddingTop="25dp"
@@ -73,7 +77,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="355dp"
                 android:text="00과목 중간고사 날짜"
-                android:textSize="15sp"
+                android:textSize="18sp"
                 android:id="@+id/textView_notice_content" />
 
             <LinearLayout
@@ -85,7 +89,7 @@
             </LinearLayout>
         </LinearLayout>
     </ScrollView>
-    <LinearLayout
+ <!--  <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
@@ -99,9 +103,9 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text=""
-            android:background="@color/themeColor"
+            android:background="#e9d7d9"
             />
 
 
-    </LinearLayout>
+    </LinearLayout>-->
 </LinearLayout>

@@ -8,35 +8,18 @@
     <!--android:singleLine="false"
          자동으로 라인을 아래로 내리기-->
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:id="@+id/myque_modify_title"
-        android:paddingTop="10dp"
-        android:paddingBottom="10dp"
-        android:paddingLeft="10dp"
-        android:paddingRight="10dp"
-        android:background="#ffffff"
-        android:textColor="#000000"
-        android:textStyle="bold"
-        android:textSize="20dp"
-        />
-
-    <View
-        android:layout_width="wrap_content"
-        android:layout_height="0.6dp"
-        android:background="#BDBDBD" />
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/myque_modify_content"
-        android:padding="10dp"
+        android:padding="18dp"
         android:textColor="#000000"
         android:textCursorDrawable="@null"
         android:background="#ffffff"
         android:singleLine="false"
         android:gravity="top"
+        android:textSize="20sp"
         android:layout_weight="0.85" />
 
     <LinearLayout
@@ -53,7 +36,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="취소"
-            android:background="@color/themeColor"
+            android:background="#E9D7D9"
             />
         <Button
             android:id="@+id/modify_myque_enroll"
@@ -61,7 +44,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="등록"
-            android:background="@color/themeColor"
+            android:background="#E9D7D9"
             />
 
 

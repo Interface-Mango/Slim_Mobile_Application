@@ -3,29 +3,33 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#ffffff"
+    android:padding="8dp"
+    android:background="#dbdbdb"
+
     android:orientation="vertical"
     android:weightSum="10">
 
 
     <ListView
+        android:background="#ffffff"
+        android:dividerHeight="7dp"
+        android:headerDividersEnabled="false"
+        android:footerDividersEnabled="false"
         android:id="@+id/listview_myque"
         android:layout_width="match_parent"
-        android:layout_height="426dp"
-        android:layout_weight="10.20" />
+        android:layout_height="539dp"
+        android:layout_weight="1" />
 
     <LinearLayout
-        android:layout_width="match_parent"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_gravity="bottom"
-        android:padding="6dip"
-        android:background="@color/white">
+        >
 
 
         <Button
             android:id="@+id/back_myque"
-            android:layout_width="wrap_content"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="취소"
@@ -33,7 +37,7 @@
             />
         <Button
             android:id="@+id/edit_myque"
-            android:layout_width="wrap_content"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text=" "

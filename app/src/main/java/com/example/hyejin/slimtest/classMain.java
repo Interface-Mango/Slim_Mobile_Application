@@ -42,7 +42,6 @@ public class classMain extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_class_main);
 
-
         noticeButton = (ImageView) findViewById(R.id.notice_btn);
         questionButton = (ImageView) findViewById(R.id.question_btn);
         attendButton = (ImageView) findViewById(R.id.attendence_btn);
@@ -98,7 +97,12 @@ public class classMain extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), classActivity.class);
-                startActivity(intent);
+                // 생명주기 이전에 있던 액티비티 스택 제거//
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                  startActivity(intent);
+
+
             }
         });
     }

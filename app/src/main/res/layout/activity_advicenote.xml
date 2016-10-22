@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="8dp"
+
     android:background="#dbdbdb"
     android:orientation="vertical"
     android:weightSum="10">
@@ -12,16 +13,18 @@
     <ListView
         android:id="@+id/listview_advicenote"
         android:background="#ffffff"
-
         android:layout_width="match_parent"
         android:layout_height="539dp"
-        android:dividerHeight="7dp" />
+        android:dividerHeight="7dp"
+        android:headerDividersEnabled="false"
+        android:footerDividersEnabled="false"
+        android:layout_weight="1"/>
 
 
 
 <LinearLayout
     android:layout_width="fill_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:orientation="horizontal"
     >
         <Button

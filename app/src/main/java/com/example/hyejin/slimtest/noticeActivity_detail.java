@@ -27,19 +27,19 @@ public class noticeActivity_detail extends AppCompatActivity {
         textView_notice_title = (TextView)findViewById(R.id.textView_notice_title);
         textView_notice_date =(TextView) findViewById(R.id.textView_notice_date);
         textView_notice_content = (TextView)findViewById(R.id.textView_notice_content);
-        notice_detail_btn = (Button)findViewById(R.id.notice_detail_btn) ;
+        //notice_detail_btn = (Button)findViewById(R.id.notice_detail_btn) ;
 
         textView_notice_title.setText(item.getTitle());
         textView_notice_date.setText(item.getDate());
         textView_notice_content.setText(item.getContent());
 
 
-        notice_detail_btn.setOnClickListener(new View.OnClickListener() {
+ /*       notice_detail_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 finish();
             }
         });
-
+*/
     }
 }
