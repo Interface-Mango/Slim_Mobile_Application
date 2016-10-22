@@ -4,17 +4,19 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
-    android:background="#ffffff"
+    android:background="#dbdbdb"
     android:orientation="vertical"
     android:weightSum="10"
+    android:padding="8dp"
     tools:context="com.example.hyejin.slimtest.noticeActivity">
 
 
     <ListView
+        android:background="#ffffff"
         android:id="@+id/listview_notice"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:dividerHeight="1dp"
+        android:dividerHeight="7dp"
         />
 
 </LinearLayout>

@@ -94,7 +94,7 @@ public class classMain extends AppCompatActivity {
         });
 
         //과목선택 페이지로 이동
-        advicenoteButton.setOnClickListener(new View.OnClickListener() {
+        backButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), classActivity.class);
