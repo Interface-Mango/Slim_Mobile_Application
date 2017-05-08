@@ -123,7 +123,7 @@ public class adviceNoteActivity_edit extends AppCompatActivity {
                             append("sub_id").append("=").append(params[2]).append("&").
                             append("title").append("=").append(params[3]).append("&").
                             append("content").append("=").append(params[4]).append("&").
-                            append("date").append("=").append(params[5]).append("&").
+                            append("_date").append("=").append(params[5]).append("&").
                             append("select").append("=").append("300");
                     OutputStreamWriter outStream = new OutputStreamWriter(conn.getOutputStream(), "UTF-8");
                     PrintWriter writer = new PrintWriter(outStream);
